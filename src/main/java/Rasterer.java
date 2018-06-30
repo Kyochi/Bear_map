@@ -46,11 +46,26 @@ public class Rasterer {
      *                    string. <br>
      * "query_success" -> Boolean, whether the query was able to successfully complete. Don't
      *                    forget to set this to true! <br>
-     * @see #REQUIRED_RASTER_REQUEST_PARAMS
+     * @see #
      */
     public Map<String, Object> getMapRaster(Map<String, Double> params) {
-        // System.out.println(params);
+        System.out.println(params);
+        String[][] map = new String[2][2];
+        int ni = 1;
+        for (int i = 0 ; i != map.length; i++) {
+            for (int j = 0 ; j != map.length ; j++) {
+                map[i][j] = "img/"+(ni++)+".png";
+            }
+        }
         Map<String, Object> results = new HashMap<>();
+        results.put("render_grid", map);
+        results.put("raster_ul_lon", MapServer.ROOT_ULLON);
+        results.put("raster_ul_lat", MapServer.ROOT_ULLAT);
+        results.put("raster_lr_lon", MapServer.ROOT_LRLON);
+        results.put("raster_lr_lat", MapServer.ROOT_LRLAT);
+        results.put("depth", 1);
+        results.put("query_success", true);
+
         System.out.println("Since you haven't implemented getMapRaster, nothing is displayed in "
                            + "your browser.");
         return results;

@@ -2,6 +2,8 @@
 img/
 target/
 *.png
+compiler.xml
+proj3.iml
 
 
 # Git files

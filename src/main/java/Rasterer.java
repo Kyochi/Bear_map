@@ -1,3 +1,5 @@
+import quadtree.QuadTree;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,13 +10,10 @@ import java.util.Map;
  * not draw the output correctly.
  */
 public class Rasterer {
-    // Recommended: QuadTree instance variable. You'll need to make
-    //              your own QuadTree since there is no built-in quadtree in Java.
-
-    /** imgRoot is the name of the directory containing the images.
-     *  You may not actually need this for your class. */
+    public final static int MAXDEPTH = 3;
+    private QuadTree quadTree;
     public Rasterer(String imgRoot) {
-        // YOUR CODE HERE
+        quadTree = new QuadTree(Rasterer.MAXDEPTH, MapServer.ROOT_ULLON, MapServer.ROOT_ULLAT, MapServer.ROOT_LRLON, MapServer.ROOT_LRLAT);
     }
 
     /**
@@ -51,12 +50,10 @@ public class Rasterer {
     public Map<String, Object> getMapRaster(Map<String, Double> params) {
         System.out.println(params);
         String[][] map = new String[2][2];
-        int ni = 1;
-        for (int i = 0 ; i != map.length; i++) {
-            for (int j = 0 ; j != map.length ; j++) {
-                map[i][j] = "img/"+(ni++)+".png";
-            }
-        }
+        map[0][0] = "img/"+quadTree.getRoot().getChilds()[0].getImgNumb()+".png";
+        map[0][1] = "img/"+quadTree.getRoot().getChilds()[1].getImgNumb()+".png";
+        map[1][0] = "img/"+quadTree.getRoot().getChilds()[2].getImgNumb()+".png";
+        map[1][1] = "img/"+quadTree.getRoot().getChilds()[3].getImgNumb()+".png";
         Map<String, Object> results = new HashMap<>();
         results.put("render_grid", map);
         results.put("raster_ul_lon", MapServer.ROOT_ULLON);

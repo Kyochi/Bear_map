@@ -1,10 +1,10 @@
 package quadtree;
 
 public class Point {
-    double longitude;
-    double latitude;
+    public double longitude;
+    public double latitude;
 
-    public Point(double latit, double longi) {
+    public Point(double longi, double latit) {
         longitude = longi;
         latitude = latit;
     }

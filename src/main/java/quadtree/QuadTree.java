@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class QuadTree {
-    private final static int QTCHILDSNODECONSTANT = 4;
+    public final static int QTCHILDSNODECONSTANT = 4;
 
     private Node root;
     private int maxDepth;
@@ -32,8 +32,12 @@ public class QuadTree {
         return root;
     }
 
-    public static double computelonDPP(double lrLong, double ulLong, int weight) {
-        return (lrLong-ulLong)/weight;
+    public static boolean rectanglesOverLap(Point ul1, Point ul2, Point lr1, Point lr2) {
+        return !(ul1.longitude > lr2.longitude || lr1.longitude < ul2.longitude || ul1.latitude < lr2.latitude || lr1.latitude > ul2.latitude);
+    }
+
+    public static double computelonDPP(double lrLong, double ulLong, double width) {
+        return (lrLong-ulLong)/width;
     }
 
     public static List<Point> computeUlLrFromParentNode(Node parent, int quadChildNumb) {

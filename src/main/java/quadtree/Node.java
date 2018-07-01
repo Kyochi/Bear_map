@@ -1,11 +1,12 @@
 package quadtree;
 
 public class Node {
-    private static int PIXELS = 256;
+    private static double PIXELS = 256.0;
     private Point uLCoordinates;
     private Point lRCoordinates;
     private int depth;
     private String imgNumb;
+
     private double lonDPP;
 
     private Node[] childs;
@@ -18,6 +19,10 @@ public class Node {
         lonDPP = QuadTree.computelonDPP(lRCoordinates.longitude, uLCoordinates.longitude, Node.PIXELS);
         this.depth = this.imgNumb.length();
         this.childs = new Node[4];
+    }
+
+    public double getLonDPP() {
+        return lonDPP;
     }
 
     public Node[] getChilds() {

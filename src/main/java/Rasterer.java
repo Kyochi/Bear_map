@@ -108,8 +108,7 @@ public class Rasterer {
                 List<String> line = new ArrayList<>();
                 for (Node node : latitudeNode.getValue()) {
                     line.add(node.getImgNumb());
-                    rasterLr = node.getuLCoordinates();
-
+                    rasterLr = node.getlRCoordinates();
                 }
                 mapLists.add(line);
             }

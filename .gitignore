@@ -1,7 +1,7 @@
 # Base
 target/
 compiler.xml
-proj3.iml
+bearmap*.iml
 
 
 # Git files

@@ -89,7 +89,7 @@ public class MapServer {
      * This is for testing purposes, and you may fail tests otherwise.
      **/
     public static void initialize() {
-        graph = new GraphDB(OSM_DB_PATH);
+        //graph = new GraphDB(OSM_DB_PATH);
         rasterer = new Rasterer(IMG_ROOT);
     }
 

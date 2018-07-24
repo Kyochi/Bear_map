@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cs61b.proj3</groupId>
-    <artifactId>proj3</artifactId>
-    <version>1.0</version>
+    <groupId>bearmap</groupId>
+    <artifactId>bearmap</artifactId>
+    <version>1.0-SNAPSHOT</version>
     <build>
         <plugins>
             <plugin>
@@ -38,4 +38,5 @@
             <version>4.12</version>
         </dependency>
     </dependencies>
+
 </project>
